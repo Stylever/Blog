@@ -1,6 +1,6 @@
-##GraphQL
+## GraphQL
 
-###起源
+### 起源
 
 2012 年，当时 Facebook 决定重新构建原生移动应用。起因是公司的 iOS 和 Android 应用停留在围绕移动网站视图进行简单包装的阶段。他们也有自己的 RESTful 服务器和 SQL 数据库，可惜性能不佳。正因如此，工程师们意识到需要改进将数据发送到客户端应用的方式。
 
@@ -28,7 +28,7 @@ Graph + Query Language = 图表化(可视化)查询语言
 
 
 
-###RESTful APIs vs GraphQL APIs:
+### RESTful APIs vs GraphQL APIs:
 
 RESTful APIs
 
@@ -90,7 +90,7 @@ RESTful 方案本身没有对参数的类型做规定，往往都需要自行实
 
 
 
-###GraphQL 生态圈
+### GraphQL 生态圈
 
 **服务端**
 
@@ -168,7 +168,7 @@ Back-end for Front-end (以下简称 BFF ) 顾名思义，是为前端而存在�
 
 
 
-###总结
+### 总结
 
 REST 在客户端是比较复杂页面的情况下显示出其局限性，GraphQL 可以作为其缺点的补充。
 
@@ -180,7 +180,7 @@ GraphQL 允许客户端在一次请求中准确声明视图所有所需的数据
 
 
 
-###参考阅读
+### 参考阅读
 
 - [GraphQL 官网](https://graphql.org/)
 - [Apollo 官网](https://www.apollographql.com/)
