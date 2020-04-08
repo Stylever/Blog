@@ -1,4 +1,4 @@
-## HTML5 RECORD
+# HTML5 RECORD
 
 ### 音频格式
 1. MP3格式
@@ -53,14 +53,14 @@ WebM 由 Google 提出，是一个开放、免费的媒体文件格式。WebM �
 **生成 SSL 证书**
 
 1. 建立根 SSL 证书，在这个过程中需要输入密码短语，需要记住这个密码，后面会用到。 
-```shell
+```sh
 openssl genrsa -des3 -out rootCA.key 2048
 ```
 2. 使用生成的密钥创建新的根 SSL 证书。将它保存到一个名为 rootCA.pem 的文件。本证书有效期为 1024 天。
-```shell
+```sh
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
 ```
-```text
+```
 Country Name (2 letter code) []:CN
 State or Province Name (full name) []:
 Locality Name (eg, city) []:
@@ -78,7 +78,7 @@ Email Address []:
 4. 域 SSL 证书
   使用根 SSL 证书专门为位于 localhost 的本地开发环境颁发证书。
   创建一个新的 OpenSSL 配置文件 server.csr.cnf，以便在创建证书时导入这些设置，而不是在命令行中输入它们。
-```shell
+```
 [req]
 default_bits = 2048
 prompt = no
@@ -96,7 +96,7 @@ CN = localhost
 ```
 5. 创建一个 v3.ext 文件以创建一个 X509 v3 证书。注意这里是如何指定 subjectAltName 的。
 
-```shell
+```
 authorityKeyIdentifier=keyid,issuer
 basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
@@ -106,11 +106,11 @@ subjectAltName = @alt_names
 DNS.1 = localhost
 ```
 使用 server.csr.cnf 中存储的配置设置为本地主机创建证书密钥。此密钥存储在 server.key 中。
-```shell
+```sh
 openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key -config <( cat server.csr.cnf )
 ```
 证书签名请求通过前面创建的根 SSL 证书发出，以便为 localhost 创建域证书。输出是一个名为 server.crt 的证书文件。
-```shell
+```sh
 openssl x509 -req -in server.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out server.crt -days 500 -sha256 -extfile v3.ext
 ```
 

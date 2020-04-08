@@ -1,4 +1,4 @@
-## GraphQL
+# GraphQL
 
 ### 起源
 
