@@ -1,5 +1,5 @@
 # Blog
 
-- [GraphQL](./articles/GraphQL.md)  
-- [HTML5 Record](./articles/HTML5 Record.md)
+- [GraphQL](./articles/GraphQL.md)
+- [HTML5Record](./articles/HTML5 Record.md)
 
